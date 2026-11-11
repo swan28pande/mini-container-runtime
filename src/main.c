@@ -122,7 +122,6 @@ int main(int argc, char **argv)
 
 out_cgroup:
     cgroup_cleanup(&c);
-out_overlay:
     overlay_cleanup(&c);
 out:
     return status;
