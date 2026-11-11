@@ -34,10 +34,13 @@ static void setup_dev(void)
     }
     mkdir("/dev/pts", 0755);
     mkdir("/dev/shm", 01777);
-    symlink("/proc/self/fd", "/dev/fd");
-    symlink("/proc/self/fd/0", "/dev/stdin");
-    symlink("/proc/self/fd/1", "/dev/stdout");
-    symlink("/proc/self/fd/2", "/dev/stderr");
+    static const char *links[][2] = {
+        {"/proc/self/fd", "/dev/fd"},       {"/proc/self/fd/0", "/dev/stdin"},
+        {"/proc/self/fd/1", "/dev/stdout"}, {"/proc/self/fd/2", "/dev/stderr"},
+    };
+    for (size_t i = 0; i < sizeof links / sizeof links[0]; i++)
+        if (symlink(links[i][0], links[i][1]) < 0)
+            DIE("symlink");
 }
 
 static void setup_rootfs(struct container *c)
