@@ -1,6 +1,6 @@
 # minirun: a minimal container runtime
 
-A small container runtime in C that isolates a process using Linux namespaces, cgroups v2, an overlayfs root filesystem, and a seccomp filter. It is about 400 lines of code and needs nothing beyond libc and kernel headers.
+A small container runtime in C that isolates a process using Linux namespaces, cgroups v2, an overlayfs root filesystem, and a seccomp filter. It is under 500 lines of code and needs nothing beyond libc and kernel headers.
 
 **Stack:** C · Linux namespaces · cgroups v2 · overlayfs · seccomp-bpf
 

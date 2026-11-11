@@ -1,6 +1,6 @@
 CC      ?= cc
 CFLAGS  ?= -O2 -g
-CFLAGS  += -std=c11 -Wall -Wextra -D_GNU_SOURCE $(EXTRA_CFLAGS)
+CFLAGS  += -std=c11 -Wall -Wextra $(EXTRA_CFLAGS)
 SRC     := $(wildcard src/*.c)
 OBJ     := $(SRC:.c=.o)
 
