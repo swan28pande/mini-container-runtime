@@ -19,8 +19,8 @@ struct container {
     char cpu_max[32];        /* e.g. "50000 100000" (quota period) */
 
     /* filled in during setup */
-    char state_dir[256];
-    char rootfs[256];        /* overlay merged dir */
+    char state_dir[128];
+    char rootfs[160];        /* overlay merged dir */
     char cgroup_path[256];
     int sync_pipe[2];        /* parent -> child: "cgroup ready" */
 };

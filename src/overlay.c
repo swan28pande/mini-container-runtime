@@ -26,7 +26,7 @@ static int mkdir_p(const char *path, mode_t mode)
 
 int overlay_mount(struct container *c)
 {
-    char upper[300], work[300], opts[1024];
+    char upper[160], work[160], opts[4096];
 
     snprintf(c->state_dir, sizeof c->state_dir, MINIRUN_STATE_DIR "/%s", c->id);
     snprintf(c->rootfs, sizeof c->rootfs, "%s/merged", c->state_dir);
